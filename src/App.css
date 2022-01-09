@@ -1,38 +1,185 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-container {
+  max-height: 100px;
+  background-color: #1d1d1d;
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-container h2 {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: 10px 0;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-container h2:hover {
+  color: #000;
+  background-color: #e6e602;
+  transition: all 0.3s ease;
+}
+
+.header-lg {
+  color: rgb(247, 240, 240);
+}
+
+.movie-search {
+  height: 30px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #555050;
+  border-radius: 20px;
+  background-color: #1d1d1d;
+  color: #76726f;
+}
+
+.movie-search:focus {
+  outline: none;
+}
+
+.segment-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  background-color: #171717;
+  gap: 15px;
+}
+
+.segment-container .btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.segment-container .btn:hover {
+  color: rgb(155, 134, 134);
+  transition: all 0.4s ease;
+}
+
+.segment-container .btn:focus {
+  color: rgb(235, 229, 229);
+}
+
+.header-md {
+  color: rgb(122, 113, 113);
+  font-size: 1.5rem;
+}
+
+.footer-container {
+  height: 100px;
+  background-color: #1d1d1d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(247, 240, 240);
+}
+
+.movie-container {
+  background-color: #171717;
+  padding: 0 100px 50px 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.movie-card-container {
+  width: 200px;
+  flex: 1 0 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.movie-card {
+  align-self: center;
+  width: 200px;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.poster {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border: 6px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.movie-title {
+  width: 200px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 0.8px;
+}
+
+.rating {
+  position: absolute;
+  opacity: 0;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.movie-card:hover .poster {
+  border-color: #eeee05;
+  transition: all 0.3s ease;
+  opacity: 0.4;
+}
+
+.movie-card:hover .rating {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.fastar {
+  position: absolute;
+  opacity: 0;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+.movie-card:hover .fastar {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.movie_details {
+  border: none;
+  width: 130px;
+  height: 40px;
+  background-color: #40b107;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.movie_details:hover {
+  background-color: #538a38;
+}
+
+.movie-card:hover .movie_details {
+  opacity: 1;
 }
