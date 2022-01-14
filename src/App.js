@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Segments from "./components/Segments";
 import Favourites from "./components/Favourites";
 import Popular from "./components/Popular";
+import SingleMovie from "./components/SingleMovie";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Popular />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="/movies/:id" element={<SingleMovie />} />
         </Routes>
       </BrowserRouter>
       <Footer />
