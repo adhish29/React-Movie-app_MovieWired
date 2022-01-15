@@ -20,7 +20,16 @@ function Segments() {
         </button>
       </Link>
       <Link to={"/favourites"}>
-        <button className="btn header-md">Favourites</button>
+        <button
+          className="btn header-md"
+          style={
+            location.pathname === "/favourites"
+              ? { color: "rgb(235, 229, 229)" }
+              : null
+          }
+        >
+          Favourites
+        </button>
       </Link>
     </div>
   );

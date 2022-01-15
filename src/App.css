@@ -98,7 +98,7 @@
   background-color: #171717;
   padding: 0 100px 50px 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 27px;
 }
@@ -235,6 +235,15 @@
   background-color: #eeee05;
 }
 
+.movie-img-fav .remove-btn {
+  color: white;
+  background-color: rgb(224, 81, 56);
+}
+
+.movie-img-fav .remove-btn:hover {
+  background-color: rgb(202, 66, 42);
+}
+
 .movie-info {
   width: 400px;
   color: rgb(247, 205, 205);
@@ -360,5 +369,46 @@
 .favourites-container {
   background-color: #171717;
   flex-grow: 1;
-  /* min-height: 500px; */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 1.5rem;
+}
+
+.fav-movie-card-container {
+  justify-self: center;
+}
+
+.fav-movie-card-container .movie_details {
+  top: 60%;
+  left: 50%;
+}
+
+.fav-movie-card-container .remove-fav {
+  top: 80%;
+  left: 50%;
+  font-size: 0.9rem;
+  width: 150px;
+  background-color: rgb(223, 82, 58);
+}
+
+.remove-fav:hover {
+  background-color: rgb(201, 65, 41);
+}
+
+@media (max-width: 1400px) {
+  .favourites-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 950px) {
+  .favourites-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .favourites-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

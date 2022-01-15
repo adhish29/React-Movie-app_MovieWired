@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { FaImdb } from "react-icons/fa";
 
 import SimilarMovies from "./SimilarMovies";
+import { MyContext } from "../context/FavouriteContext";
 
 function SingleMovie() {
+  const loc = useLocation();
+  const movie_id = loc.pathname.split("/")[2];
+
+  const context = useContext(MyContext);
+  let favChk = context.checkIsFav(movie_id) ? true : false;
+  // console.log(favChk);
+  const [isFav, setIsFav] = useState(favChk);
   const [movie, setMovie] = useState();
   const [similarMovies, setSimilarMovies] = useState();
   console.log(movie);
 
-  const loc = useLocation();
-  const movie_id = loc.pathname.split("/")[2];
   useEffect(() => {
+    favChk = context.checkIsFav(movie_id) ? true : false;
+    setIsFav(favChk);
     const GetMovie = async () => {
       const movie_details = await axios.get(
         `https://api.themoviedb.org/3/movie/${movie_id}?api_key=924c4332d88c80dcf5b2da4fc31ac48c&language=en-US`
@@ -35,7 +43,7 @@ function SingleMovie() {
   const getGenres = () => {
     if (movie) {
       let arr = movie.genres.map(({ name, id }, idx) => {
-        console.log(name, id, idx);
+        // console.log(name, id, idx);
         if (idx === movie.genres.length - 1)
           return <span key={id}>{name}</span>;
         return <span key={id}>{name + " / "}</span>;
@@ -43,6 +51,16 @@ function SingleMovie() {
       // console.log(arr);
       return arr;
     }
+  };
+
+  const addToFavHandler = (movie) => {
+    context.addToFav(movie);
+    setIsFav((isFav) => !isFav);
+  };
+
+  const removeFromFavHandler = () => {
+    context.removeFromFav(movie_id);
+    setIsFav((isFav) => !isFav);
   };
 
   return (
@@ -55,7 +73,15 @@ function SingleMovie() {
               alt="poster"
               className="poster_image"
             />
-            <button>Add to Favourites</button>
+            {isFav ? (
+              <button className="remove-btn" onClick={removeFromFavHandler}>
+                Remove from Favourites
+              </button>
+            ) : (
+              <button onClick={() => addToFavHandler(movie)}>
+                Add to Favourites
+              </button>
+            )}
           </div>
           <div className="movie-info">
             <h1>{movie.original_title}</h1>
