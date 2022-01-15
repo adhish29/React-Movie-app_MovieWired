@@ -3,10 +3,11 @@ import React, { createContext, useEffect, useState } from "react";
 export const MyContext = createContext();
 
 function MyProvider({ children }) {
-  const [favourites, setFavourites] = useState([]);
+  const storedFav = JSON.parse(localStorage.getItem("favourites")) || [];
+  const [favourites, setFavourites] = useState(storedFav);
   // const [isFav, setIsFav] = useState([]);
   useEffect(() => {
-    console.log(favourites);
+    localStorage.setItem("favourites", JSON.stringify(favourites));
   }, [favourites]);
 
   function addToFav(movie) {
