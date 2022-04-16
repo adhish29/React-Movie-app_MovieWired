@@ -5,7 +5,7 @@ export const MyContext = createContext();
 function MyProvider({ children }) {
   const storedFav = JSON.parse(localStorage.getItem("favourites")) || [];
   const [favourites, setFavourites] = useState(storedFav);
-  // const [isFav, setIsFav] = useState([]);
+
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify(favourites));
   }, [favourites]);
