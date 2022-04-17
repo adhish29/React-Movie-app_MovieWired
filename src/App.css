@@ -45,11 +45,30 @@
 .movie-search {
   height: 30px;
   padding: 10px;
+  margin-right: 15px;
   font-size: 1rem;
   border: 1px solid #555050;
   border-radius: 20px;
   background-color: #1d1d1d;
   color: #76726f;
+}
+
+.searchBtn{
+  border: none;
+  border-radius: 20px;
+  border: 1px solid #555050;
+  width: 75px;
+  height: 30px;
+  background-color: transparent;
+  color: #76726f;
+  cursor: pointer;
+  font-size: 1rem;
+
+}
+
+.searchBtn:hover{
+  background-color: #e6e602;
+  color: #000;
 }
 
 .movie-search:focus {

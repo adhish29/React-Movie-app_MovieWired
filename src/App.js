@@ -19,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Popular />} />
             <Route path="/popular" element={<Popular />} />
+
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/movies/:id" element={<SingleMovie />} />
           </Routes>

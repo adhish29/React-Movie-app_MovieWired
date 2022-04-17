@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { MyContext } from "../context/FavouriteContext";
 import FavouriteMovies from "./FavouriteMovies";
-import MovieDetails from "./MovieDetails";
 
 function Favourites() {
   const context = useContext(MyContext);
