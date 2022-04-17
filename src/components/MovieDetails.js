@@ -3,8 +3,10 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function MovieDetails({ movie }) {
-  const { poster_path, title, vote_average } = movie;
-  const poster_url = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  const { poster_path, title, vote_average, backdrop_path } = movie;
+  const poster_url = `https://image.tmdb.org/t/p/w500${
+    poster_path ? poster_path : backdrop_path
+  }`;
   return (
     <div className="movie-card-container">
       <div className="movie-card">

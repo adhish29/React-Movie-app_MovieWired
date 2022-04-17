@@ -31,6 +31,18 @@ function Segments() {
           Favourites
         </button>
       </Link>
+      <Link to={"/search"}>
+        <button
+          className="btn header-md"
+          style={
+            location.pathname === "/search"
+              ? { color: "rgb(235, 229, 229)" }
+              : null
+          }
+        >
+          Searched-Movies
+        </button>
+      </Link>
     </div>
   );
 }
