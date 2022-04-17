@@ -8,6 +8,7 @@ import Favourites from "./components/Favourites";
 import Popular from "./components/Popular";
 import SingleMovie from "./components/SingleMovie";
 import MyProvider from "./context/FavouriteContext";
+import MovieSearchResults from "./components/MovieSearchResults";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
             <Route path="/popular" element={<Popular />} />
 
             <Route path="/favourites" element={<Favourites />} />
+            <Route path="/search" element={<MovieSearchResults />} />
+            <Route
+              path="/search/:searchTerm"
+              element={<MovieSearchResults />}
+            />
             <Route path="/movies/:id" element={<SingleMovie />} />
           </Routes>
         </BrowserRouter>

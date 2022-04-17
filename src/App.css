@@ -57,6 +57,7 @@
   border: none;
   border-radius: 20px;
   border: 1px solid #555050;
+  
   width: 75px;
   height: 30px;
   background-color: transparent;
@@ -412,6 +413,11 @@
   row-gap: 1.5rem;
 }
 
+.search-container{
+  background-color: #171717;
+  flex-grow: 1;
+}
+
 .fav-movie-card-container {
   justify-self: center;
 }
@@ -431,6 +437,13 @@
 
 .remove-fav:hover {
   background-color: rgb(201, 65, 41);
+}
+
+.message{
+  color: rgb(247, 240, 240);
+  font-size: 2rem;
+  display: block;
+  margin: 0 auto;
 }
 
 @media (max-width: 1400px) {

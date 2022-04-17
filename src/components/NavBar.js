@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import Popular from "./Popular";
+import MovieSearchResults from "./MovieSearchResults";
 
 function NavBar() {
   const searchTermRef = useRef();
@@ -24,13 +24,15 @@ function NavBar() {
             className="movie-search"
             ref={searchTermRef}
           />
-
-          <button onClick={handleSearch} className="searchBtn">
-            Search
-          </button>
+          <Link to={`/search/${searchTerm}`}>
+            <button onClick={handleSearch} className="searchBtn">
+              Search
+            </button>
+          </Link>
         </div>
       </div>
-      {searchTerm && <Popular searchTerm={searchTerm} />}
+
+      {/* {searchTerm && <MovieSearchResults searchTerm={searchTerm} />} */}
     </>
   );
 }
