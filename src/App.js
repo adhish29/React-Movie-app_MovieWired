@@ -22,6 +22,10 @@ function App() {
             <Route path="/popular" element={<Popular />} />
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/search" element={<MovieSearchResults />} />
+            <Route
+              path="/search/:searchTerm"
+              element={<MovieSearchResults />}
+            />
             <Route path="/movies/:id" element={<SingleMovie />} />
           </Routes>
         </BrowserRouter>
